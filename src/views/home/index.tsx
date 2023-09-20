@@ -47,6 +47,35 @@ export function HomePage() {
       />
 
       <Separator text="ÚLTIMAS NOTICIAS" />
+
+      <div className="grid grid-cols-3 gap-4">
+        <div className="flex flex-col items-center w-full col-span-1">
+          <Image
+            src="./images/home/noticias-home.svg"
+            alt="noticia CTA"
+            width={400}
+            height={400}
+          />
+        </div>
+
+        <div className="flex flex-col w-full col-span-1">
+          <Image
+            src="./images/home/noticias-home.svg"
+            alt="noticia CTA"
+            width={400}
+            height={400}
+          />
+        </div>
+
+        <div className="flex flex-col w-full col-span-1">
+          <Image
+            src="./images/home/noticias-home.svg"
+            alt="noticia CTA"
+            width={400}
+            height={400}
+          />
+        </div>
+      </div>
     </div>
   );
 }
