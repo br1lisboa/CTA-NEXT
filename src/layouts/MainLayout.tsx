@@ -59,7 +59,7 @@ const contactInfo = [
 export function MainLayout(porps: MainLayoutProps) {
   const { children, title = "CTA" } = porps;
   return (
-    <div className="min-h-[100vh] min-w-[100vw] bg-slate-200 flex flex-col">
+    <div className="h-screen w-screen bg-slate-100 flex flex-col">
       <Head>
         <title>{title}</title>
         {/* <link rel="icon" href="/favicon.ico" /> */}
