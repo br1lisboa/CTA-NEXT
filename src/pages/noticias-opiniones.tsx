@@ -1,5 +1,7 @@
 import { MainLayout } from "@/layouts/MainLayout";
-
+import { NoticiasPage } from "@/views/noticias";
 export default function NoticiasOpinionesPage() {
-  return <MainLayout>noticias-opiniones</MainLayout>;
+  return <MainLayout>
+    <NoticiasPage />
+  </MainLayout>;
 }

@@ -3,6 +3,9 @@ import { NavBar } from "@/components/navbar/NavBar";
 import Head from "next/head";
 import React from "react";
 
+
+
+
 interface MainLayoutProps {
   children: React.ReactNode;
   title?: string;
@@ -12,7 +15,7 @@ const navLinks = [
   { name: "INICIO", href: "/" },
   { name: "INSTITUCIONAL", href: "/institucional" },
   { name: "SECRETARÍAS", href: "/secretarias" },
-  { name: "NOTICIAS Y OPONIONES", href: "/noticias-opiniones" },
+  { name: "NOTICIAS Y OPINIONES", href: "/noticias-opiniones" },
   { name: "AFILIACIONES Y CONTACTO", href: "/afiliaciones-contacto" },
   { name: "BIBLIOTECA", href: "/biblioteca" },
 ];
@@ -56,24 +59,24 @@ const contactInfo = [
   "ctaachaco@gmail.com",
 ];
 
-export function MainLayout(porps: MainLayoutProps) {
-  const { children, title = "CTA" } = porps;
+export function MainLayout(props: MainLayoutProps) {
+  const { children, title = "CTA" } = props;
   return (
-    <div className="h-screen w-screen bg-slate-100 flex flex-col">
-      <Head>
-        <title>{title}</title>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
-      </Head>
+      <div className="h-screen w-screen flex flex-col">
+        <Head>
+          <title>{title}</title>
+          {/* <link rel="icon" href="/favicon.ico" /> */}
+        </Head>
 
-      <NavBar links={navLinks} networks={networks} />
+        <NavBar links={navLinks} networks={networks} />
 
-      <div className="flex-grow pl-10p pr-10p">{children}</div>
+        <div className="p-3 flex-grow pl-10p pr-10p">{children}</div>
 
-      <Footer
-        contactInfo={contactInfo}
-        imagesFooterLeft={imagesFooterLeft}
-        imagesFooterRight={imagesFooterRight}
-      />
-    </div>
+        <Footer
+          contactInfo={contactInfo}
+          imagesFooterLeft={imagesFooterLeft}
+          imagesFooterRight={imagesFooterRight}
+        />
+      </div>
   );
 }

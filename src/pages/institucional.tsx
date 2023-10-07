@@ -1,5 +1,8 @@
 import { MainLayout } from "@/layouts/MainLayout";
+import { InstitucionalPage } from "@/views/institucional";
 
-export default function InstitucionalPage() {
-  return <MainLayout>institucional</MainLayout>;
+export default function Institucional() {
+  return <MainLayout>
+    <InstitucionalPage/>
+  </MainLayout>;
 }

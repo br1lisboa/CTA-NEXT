@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "titulo": "Título de la opinion 1",
+        "cuerpo": "Cuerpo de la opinion 1. Aquí va el contenido de la opinion...",
+        "imagen": "/images/home/noticias-home.svg",
+        "fecha": "1/1/2024"
+    },
+    {
+        "id": "2",
+        "titulo": "Título de la opinion 2",
+        "cuerpo": "Cuerpo de la opinion 2. Aquí va el contenido de la opinion...",
+        "imagen": "/images/home/noticias-home.svg",
+        "fecha": "1/1/2024"
+    },
+    {
+        "id": "3",
+        "titulo": "Título de la opinion 3",
+        "cuerpo": "Cuerpo de la opinion 3. Aquí va el contenido de la opinion...",
+        "imagen": "/images/home/noticias-home.svg",
+        "fecha": "1/1/2024"
+    },
+    {
+        "id": "4",
+        "titulo": "Título de la opinion 4",
+        "cuerpo": "Cuerpo de la opinion 4. Aquí va el contenido de la opinion...",
+        "imagen": "/images/home/noticias-home.svg",
+        "fecha": "1/1/2024"
+    },
+    {
+        "id": "5",
+        "titulo": "Título de la opinion 5",
+        "cuerpo": "Cuerpo de la opinion 5. Aquí va el contenido de la opinion...",
+        "imagen": "/images/home/noticias-home.svg",
+        "fecha": "1/1/2024"
+    },
+    {
+        "id": "6",
+        "titulo": "Título de la opinion 6",
+        "cuerpo": "Cuerpo de la opinion 6. Aquí va el contenido de la opinion...",
+        "imagen": "/images/home/noticias-home.svg",
+        "fecha": "1/1/2024"
+    }
+]
