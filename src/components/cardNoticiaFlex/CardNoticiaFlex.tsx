@@ -8,17 +8,16 @@ interface NoticiaCardProps {
     fecha: string;
     text: string;
 }
-const truncateStringByWords = (str: string, numWords: number) => {
-    const words = str.split(' ');
-    if (words.length <= numWords) {
+const truncateString = (str: string, num: number) => {
+    if (str.length <= num) {
       return str;
     }
-    return words.slice(0, numWords).join(' ') + '...';
+    return str.slice(0, num) + '...';
   };
 
 export default function CardNoticiaFlex(props: NoticiaCardProps) {
     const { id, titulo, imagenSrc, cuerpo, fecha, text } = props;
-    const truncatedCuerpo = truncateStringByWords(cuerpo, 40);
+    const truncatedCuerpo = truncateString(cuerpo, 70);
 
     let route: string;
     if (text === "NOTICIAS") {

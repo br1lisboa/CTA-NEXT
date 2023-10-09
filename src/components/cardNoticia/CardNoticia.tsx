@@ -7,17 +7,16 @@ interface NoticiaCardProps {
   cuerpo: string;
   id: string; // Asumiendo que tienes un ID único para cada noticia
 }
-const truncateStringByWords = (str: string, numWords: number) => {
-  const words = str.split(' ');
-  if (words.length <= numWords) {
+const truncateString = (str: string, num: number) => {
+  if (str.length <= num) {
     return str;
   }
-  return words.slice(0, numWords).join(' ') + '...';
+  return str.slice(0, num) + '...';
 };
 
 export default function NoticiaCard(props: NoticiaCardProps) {
   const { titulo, imagenSrc, cuerpo, id } = props;
-  const truncatedCuerpo = truncateStringByWords(cuerpo, 40);
+  const truncatedCuerpo = truncateString(cuerpo, 70);
 
   return (
     <Link href={`/noticias/${id}`}>

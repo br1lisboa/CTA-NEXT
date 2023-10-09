@@ -62,7 +62,7 @@ const contactInfo = [
 
 export function MainLayout(props: MainLayoutProps) {
   const { children, title = "CTA" } = props;
-  const urlStream = "http://104.238.205.177:7074/stream"
+  const urlStream = "https://104.238.205.177:7074/stream"
   return (
     <div className="h-screen w-screen flex flex-col">
       <Head>
