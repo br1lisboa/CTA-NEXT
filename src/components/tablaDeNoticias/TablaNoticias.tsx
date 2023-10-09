@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { collection, getDocs, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { ref, deleteObject, } from "firebase/storage"
 import { db, storage } from "../../firebase/config";
 import Spinner from "@/components/spinner/Spinner";
+import Swal from 'sweetalert2';
 
 interface Entrada {
     id: string;
@@ -60,7 +60,7 @@ export default function TablaEntradas() {
 
             if (docSnap.exists()) {
                 await deleteDoc(docRef);
-                console.log(`Entrada eliminada de la colección "${categoria}" con ID: ${id}`);
+                Swal.fire('Entrada eliminada', 'La entrada ha sido eliminada exitosamente.', 'success');
 
                 // Eliminar la imagen de Firebase Storage
                 const storageRef = ref(storage, `${id}/image`);
@@ -72,7 +72,7 @@ export default function TablaEntradas() {
                 console.error(`No se encontró el documento con ID: ${id} en la colección ${categoria}`);
             }
         } catch (error) {
-            console.error("Error al eliminar la entrada:", error);
+            Swal.fire('Error', 'Hubo un error al eliminar la entrada.', 'error');
         }
     };
 
@@ -94,14 +94,6 @@ export default function TablaEntradas() {
                                     <tr key={entrada.id} className="text-gray-800">
                                         <td className="py-2 px-4 border-b">{entrada.titulo}</td>
                                         <td className="py-2 px-4 border-b">{entrada.cuerpo}</td>
-                                        <td className="py-2 px-4 border-b">
-                                            <Image
-                                                src={entrada.imagen}
-                                                alt={entrada.titulo}
-                                                width={80}
-                                                height={80}
-                                            />
-                                        </td>
                                         <td className="py-2 px-4 border-b">{entrada.id}</td>
                                         <td className="py-2 px-4 border-b">{entrada.categoria}</td>
                                         <td className="py-2 px-4 border-b">

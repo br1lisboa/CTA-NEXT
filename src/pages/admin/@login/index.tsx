@@ -1,12 +1,14 @@
 import LoginForm from "@/components/loginForm/LoginForm"
-import AdminLayout from "../AdminLayout"
 
 
+import AuthListener from "@/components/authListener/AuthListener"
 const LoginPage = () => {
     return (
             <div>
                 <LoginForm />
+                <AuthListener />
             </div>
+
     )
 }
 

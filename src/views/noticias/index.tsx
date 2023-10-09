@@ -38,7 +38,7 @@ export function NoticiasPage() {
 
     return (
         <div className="bg-white h-full">
-            <div className="flex flex-row p-4 justify-evenly pt-20">
+            <div className="flex gap-2 flex-row p-4 justify-evenly pt-20">
                 {loading ? (
                     <Spinner />
                 ) : (

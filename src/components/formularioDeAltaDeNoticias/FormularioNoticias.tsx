@@ -4,6 +4,7 @@ import { doc, setDoc } from "firebase/firestore"
 import { db, storage } from "@/firebase/config"
 import { ref, uploadBytes, getDownloadURL, StorageReference } from "firebase/storage"
 import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 
 interface ProductValues {
     titulo: string;
@@ -29,7 +30,6 @@ const createProduct = async (values: ProductValues, file: File | null, categoria
 
     try {
         await setDoc(docRef, values);
-        console.log("Producto creado exitosamente");
     } catch (error) {
         console.error("Error al crear el producto:", error);
     }
@@ -64,7 +64,10 @@ const CreateForm: React.FC = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         await createProduct(values, file, tipoEntrada);
+        Swal.fire('Entrada creada', 'La entrada ha sido creada exitosamente.', 'success');
     }
+
+    
     const handleVolverAtras = () => {
         router.back();
     };
@@ -144,7 +147,7 @@ const CreateForm: React.FC = () => {
                     <Boton
                         className='text-[#36B776] border border-[#36B776]'
                         type="button"
-                        onClick={handleVolverAtras}  // Llama a la función de volver atrás
+                        onClick={handleVolverAtras} 
                     >
                         Volver Atrás
                     </Boton>

@@ -1,16 +1,37 @@
 import Separator from "@/components/separator/Separator";
 import { Boton } from "@/components/boton/Boton";
 import GoogleMap from "@/components/googleMaps/GoogleMaps";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
+
 
 const descargarPDF = () => {
     const link = document.createElement('a');
     link.href = '/fichaAdmision/Ficha.pdf';  // Ruta al archivo PDF en tu directorio público
     link.download = 'Ficha_De_Admision.pdf';  // Nombre con el que se descargará
     link.click();
-  };
+};
+
 
 
 export function AfiliacionContacto() {
+    const form = useRef<HTMLFormElement>(null);
+    
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (form.current) {
+            emailjs.sendForm('service_l9qcbn8', 'template_anrsnjh', form.current, 'XLQUPJJceKUX5fiTi')
+                .then((result) => {
+                    Swal.fire('Correo enviado', 'Tu correo ha sido enviado exitosamente.', 'success');
+                })
+                .catch((error) => {
+                    Swal.fire('Error', 'Hubo un error al enviar el correo.', 'error');
+                });
+        }
+    };
+
     return (
         <div className="bg-white h-full pt-20 p-10">
             <Separator text="FICHA DE AFILIASIÓN A LA CTA AUTÓNOMA" className="text-lg" />
@@ -23,7 +44,7 @@ export function AfiliacionContacto() {
                 QUIÉRES AFILIARTE A LA CTA AUTÓNOMA ?
             </h2>
             <div className="text-center my-5">
-                <Boton  onClick={descargarPDF} className="text-[#36B776] border border-[#36B776]"  type='button'>
+                <Boton onClick={descargarPDF} className="text-[#36B776] border border-[#36B776]" type='button'>
                     Descargar Ficha de Afiliación
                 </Boton>
             </div>
@@ -58,7 +79,7 @@ export function AfiliacionContacto() {
                         <p>Entre Ríos 357 | Resistencia | Rep Argentina</p>
                         <p>+54 362 476-8520</p>
                         <p>ctaachaco@gmail.com</p>
-                        </div>
+                    </div>
                     <div className=" p-6">
                         <GoogleMap />
                     </div>
@@ -73,13 +94,14 @@ export function AfiliacionContacto() {
 
                     </div>
                     <div>
-                        <form className="max-w-md mx-auto p-6 bg-white">
+                        <form ref={form} onSubmit={sendEmail} className="max-w-md mx-auto p-6 bg-white">
                             <h2 className="text-xl font-bold mb-4">Formulario de Contacto</h2>
                             <div className="mb-4">
                                 <input
                                     className="w-full p-2 border rounded border-gray-400"
                                     type="text"
                                     placeholder="Nombre"
+                                    name="user_name"
                                 />
                             </div>
                             <div className="mb-4">
@@ -87,6 +109,7 @@ export function AfiliacionContacto() {
                                     className="w-full p-2 border rounded border-gray-400"
                                     type="text"
                                     placeholder="Apellido"
+                                    name="user_lastname"
                                 />
                             </div>
                             <div className="mb-4">
@@ -94,6 +117,7 @@ export function AfiliacionContacto() {
                                     className="w-full p-2 border rounded border-gray-400"
                                     type="email"
                                     placeholder="Email"
+                                    name="user_email"
                                 />
                             </div>
                             <div className="mb-4">
@@ -101,6 +125,7 @@ export function AfiliacionContacto() {
                                     className="w-full p-2 border rounded border-gray-400"
                                     type="tel"
                                     placeholder="Teléfono"
+                                    name="user_telefono"
                                 />
                             </div>
                             <div className="mb-4">
@@ -108,9 +133,11 @@ export function AfiliacionContacto() {
                                     className="w-full p-2 border rounded border-gray-400"
                                     placeholder="Mensaje"
                                     rows={4}
+                                    name="message" 
                                 ></textarea>
                             </div>
                             <button
+                            type="submit"
                                 className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
                             >
                                 Enviar
@@ -123,6 +150,8 @@ export function AfiliacionContacto() {
             <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAHnhXLHyMDRcw5jXN4LtAYdb-Eu5e2TI">
             </script>
+
+
         </div >
 
     );

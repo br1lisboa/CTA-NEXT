@@ -8,9 +8,17 @@ interface NoticiaCardProps {
     fecha: string;
     text: string;
 }
+const truncateStringByWords = (str: string, numWords: number) => {
+    const words = str.split(' ');
+    if (words.length <= numWords) {
+      return str;
+    }
+    return words.slice(0, numWords).join(' ') + '...';
+  };
 
 export default function CardNoticiaFlex(props: NoticiaCardProps) {
     const { id, titulo, imagenSrc, cuerpo, fecha, text } = props;
+    const truncatedCuerpo = truncateStringByWords(cuerpo, 40);
 
     let route: string;
     if (text === "NOTICIAS") {
@@ -22,18 +30,25 @@ export default function CardNoticiaFlex(props: NoticiaCardProps) {
         route = `/noticias/${id}`;
     }
 
+
     return (
         <Link href={route}>
-            <div className="flex bg-white rounded p-4 mb-4">
-                <div className="ml-4">
-                    <p>{fecha}</p>
-                    <h2 className="text-lg font-bold">{titulo}</h2>
-                    <p>{cuerpo}</p>
+            <div className="flex border rounded-md gap-2 bg-white rounded p-4 mb-4">
+                <div className="flex-grow">
+                    <div className="ml-4">
+                        <p>{fecha}</p>
+                        <h2 className="text-lg font-bold">{titulo}</h2>
+                        <p className="p-2">{truncatedCuerpo}</p>
+                    </div>
                 </div>
-                <div className="flex-shrink-0">
-                    <img src={imagenSrc} alt="Imagen" className="w-100 h-100" />
+                <div className="flex-shrink-0 w-40 h-40">
+                    <img
+                        src={imagenSrc}
+                        alt="Imagen"
+                        className="w-full h-full object-cover"
+                    />
                 </div>
             </div>
         </Link>
-    )
+    );
 }

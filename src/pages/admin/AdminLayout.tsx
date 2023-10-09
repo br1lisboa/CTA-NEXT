@@ -9,8 +9,8 @@ interface AdminLayoutProps {
 }
 
 const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
-  const { user } = useAuthContext();
 
+  const { user } = useAuthContext();
 
   if (user.logged) {
     return children;
