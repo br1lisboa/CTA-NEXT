@@ -2,6 +2,7 @@ import { Footer } from "@/components/footer/Footer";
 import { NavBar } from "@/components/navbar/NavBar";
 import Head from "next/head";
 import React from "react";
+import RadioPlayer from "@/components/RadioPlayer/RadioPlayer";
 
 
 
@@ -61,22 +62,24 @@ const contactInfo = [
 
 export function MainLayout(props: MainLayoutProps) {
   const { children, title = "CTA" } = props;
+  const urlStream = "http://104.238.205.177:7074/stream"
   return (
-      <div className="h-screen w-screen flex flex-col">
-        <Head>
-          <title>{title}</title>
-          {/* <link rel="icon" href="/favicon.ico" /> */}
-        </Head>
+    <div className="h-screen w-screen flex flex-col">
+      <Head>
+        <title>{title}</title>
+      </Head>
 
-        <NavBar links={navLinks} networks={networks} />
+      <NavBar links={navLinks} networks={networks} />
 
-        <div className="p-3 flex-grow pl-10p pr-10p">{children}</div>
+      <div className="p-3 flex-grow pl-10p pr-10p">{children}</div>
 
-        <Footer
-          contactInfo={contactInfo}
-          imagesFooterLeft={imagesFooterLeft}
-          imagesFooterRight={imagesFooterRight}
-        />
-      </div>
+      <RadioPlayer streamUrl={urlStream} />
+      <Footer
+        contactInfo={contactInfo}
+        imagesFooterLeft={imagesFooterLeft}
+        imagesFooterRight={imagesFooterRight}
+      />
+
+    </div>
   );
 }
