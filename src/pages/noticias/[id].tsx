@@ -1,5 +1,5 @@
 
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from "../../firebase/config";
 
 import { MainLayout } from '@/layouts/MainLayout';
