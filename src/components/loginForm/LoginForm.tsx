@@ -46,8 +46,6 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                     onChange={handleChange}
                 />
                 <Boton type="button" onClick={() => loginUser(values)} className="mr-4">Ingresar</Boton>
-
-                <Boton type="button" onClick={() => registerUser(values)}>Registrarme</Boton>
             </form>
         </div>
     );
