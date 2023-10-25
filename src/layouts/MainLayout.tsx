@@ -2,7 +2,7 @@ import { Footer } from "@/components/footer/Footer";
 import { NavBar } from "@/components/navbar/NavBar";
 import Head from "next/head";
 import React from "react";
-import RadioPlayer from "@/components/RadioPlayer/RadioPlayer";
+import { Player } from "@/components/RadioPlayer/RadioPlayer";
 
 
 
@@ -62,7 +62,7 @@ const contactInfo = [
 
 export function MainLayout(props: MainLayoutProps) {
   const { children, title = "CTA" } = props;
-  const urlStream = "https://104.238.205.177:7074/stream"
+  
   return (
     <div className="h-screen w-screen flex flex-col">
       <Head>
@@ -73,7 +73,8 @@ export function MainLayout(props: MainLayoutProps) {
 
       <div className="p-3 flex-grow pl-10p pr-10p">{children}</div>
 
-      <RadioPlayer streamUrl={urlStream} />
+      <Player channel="somosgelatina_" />
+
       <Footer
         contactInfo={contactInfo}
         imagesFooterLeft={imagesFooterLeft}
