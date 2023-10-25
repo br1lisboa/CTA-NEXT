@@ -73,7 +73,7 @@ export function MainLayout(props: MainLayoutProps) {
 
       <div className="p-3 flex-grow pl-10p pr-10p">{children}</div>
 
-      <Player channel="somosgelatina_" />
+      <Player channel="radioctachaco" />
 
       <Footer
         contactInfo={contactInfo}
