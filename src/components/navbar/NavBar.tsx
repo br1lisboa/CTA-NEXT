@@ -9,6 +9,7 @@ interface NavBarProps {
 
 export function NavBar(props: NavBarProps) {
   const { links, networks } = props;
+
   return (
     <nav className="w-full">
       <div className="bg-[#232323] text-white p-2 flex justify-between flex-wrap">
@@ -29,7 +30,12 @@ export function NavBar(props: NavBarProps) {
       <div className="p-2 bg-[#D9D9D9]">
         <ul className="flex justify-center gap-12 flex-wrap text-[#808080]">
           {links.map((link) => (
-            <ActiveLink key={link.href} text={link.name} href={link.href} />
+            <ActiveLink
+            key={link.href}
+            text={link.name}
+            href={link.href}
+            target={link.name === "BIBLIOTECA" ? "_blank" : "_self"} // Agrega el atributo target solo al enlace de la biblioteca
+          />
           ))}
         </ul>
       </div>

@@ -2,7 +2,6 @@ import { Footer } from "@/components/footer/Footer";
 import { NavBar } from "@/components/navbar/NavBar";
 import Head from "next/head";
 import React from "react";
-import { Player } from "@/components/RadioPlayer/RadioPlayer";
 
 
 
@@ -18,7 +17,7 @@ const navLinks = [
   { name: "SECRETARÍAS", href: "/secretarias" },
   { name: "NOTICIAS Y OPINIONES", href: "/noticias-opiniones" },
   { name: "AFILIACIONES Y CONTACTO", href: "/afiliaciones-contacto" },
-  { name: "BIBLIOTECA", href: "/biblioteca" },
+  { name: "BIBLIOTECA", href: "http://archivos.bibliotecacta.org.ar/site/php/index.php"},
 ];
 
 const networks = [
@@ -69,11 +68,10 @@ export function MainLayout(props: MainLayoutProps) {
         <title>{title}</title>
       </Head>
 
-      <NavBar links={navLinks} networks={networks} />
+      <NavBar links={navLinks} networks={networks}/>
 
       <div className="p-3 flex-grow pl-10p pr-10p">{children}</div>
 
-      <Player channel="radioctachaco" />
 
       <Footer
         contactInfo={contactInfo}
