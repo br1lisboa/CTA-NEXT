@@ -13,7 +13,7 @@ interface TableProps {
 function TableRow (props: TableRowProps) {
     const {cargo, apellido, nombreNroDoc} = props
     return (
-        <tr>
+        <tr className='border-t-2 border-white'>
             <td className="bg-[#808080] text-white py-2 px-4 w-1/3">{cargo}</td>
             <td className="bg-[#D9D9D9] py-2 px-4 w-1/3">{apellido}</td>
             <td className="bg-[#D9D9D9] py-2 px-4 w-1/3">{nombreNroDoc}</td>

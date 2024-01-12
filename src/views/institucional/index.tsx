@@ -7,7 +7,7 @@ export function InstitucionalPage() {
     return (
         <div className="bg-white h-full ">
             <Banner
-                src="./images/quienesSomos.svg"
+                src="/images/home/institucional-historia.png"
                 alt="CTA - banner"
                 width={1200}
                 height={300}

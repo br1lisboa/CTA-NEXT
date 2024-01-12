@@ -11,7 +11,7 @@ export function HomePage() {
     <div className="flex w-full p-4 gap-10">
       <div className="bg-white h-full w-3/4">
         <Banner
-          src="/images/home/cta-fondo-azul.png"
+          src="/images/home/institucional-inicio.png"
           alt="CTA - banner"
           width={1200}
           height={300}
