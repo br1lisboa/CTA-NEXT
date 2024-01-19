@@ -26,8 +26,6 @@ export function Secretarias() {
       <Separator text="COMISIÓN EJECUTIVA PROVINCIA DEL CHACO" className="text-center my-10" />
       <div className="max-w-full mx-auto p-5">
         <Tabla data={datos} />
-        <Separator text="COMISIÓN EJECUTIVA REGIONAL J. J. CASTELLI" className="text-center my-10" />
-
       </div>
 
     </>
